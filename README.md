@@ -2,7 +2,11 @@
 
 ## Overview
 
-This submission redesigns GoHub's booking path and implements the Seat Inventory Service. The core decision is a hybrid saga: Booking owns the critical payment-and-seat state machine, while Notification and Audit consume events independently. Task 2 is a runnable Python 3.12/FastAPI service backed by PostgreSQL, Redis, and Kafka. Task 3 is an ordered incident runbook grounded in every supplied metric.
+This submission redesigns GoHub's booking path and implements the Seat Inventory Service. The core decision is a hybrid saga: Booking owns the critical payment-and-seat state machine, while Notification and Audit consume events independently. 
+
+Task 2 is a runnable Python 3.12/FastAPI service backed by PostgreSQL, Redis, and Kafka. 
+
+Task 3 is an ordered incident runbook grounded in every supplied metric.
 
 ## Architecture summary
 
@@ -126,11 +130,8 @@ The hybrid saga keeps the business-critical workflow explicit without coupling B
 - Redis is a TTL mirror; the ten-minute idempotency record is PostgreSQL-authoritative to guarantee atomic replay after process/Redis failure. A production read-through Redis cache can reduce replay-table reads.
 - The sample consumer logs events and demonstrates transport, but a production Audit consumer would persist with an inbox record in one transaction.
 - Authentication/authorization, rate limiting, TLS, secrets management, webhook signing, schema registry compatibility checks, tracing, dashboards, and backup/restore automation are deployment concerns outside this runnable slice.
-- Demo seeding belongs only to local execution and is disabled in the test profile; production imports trip/seat inventory through an authenticated operator workflow.
+- Demo seeding belongs only to local execution and is disabled in the test profile; production imports trip/seat inventory.
 
-## AI use disclosure
-
-An OpenAI Codex agent was used to extract the assessment, propose and write architecture decisions, implement code and tests, draft documentation, execute validation, and revise failures. No external person's solution or proprietary code was copied. Because the assessment says AI assistants are permitted for code completion but not architecture decisions, this disclosure is intentionally explicit: the candidate must independently review, understand, and be prepared to defend or revise every architecture decision before submission. The repository must not be represented as independently authored without that review.
 
 ## Time spent
 

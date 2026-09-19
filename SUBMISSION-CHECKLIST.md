@@ -39,7 +39,7 @@ This section is filled from the final executed validation rather than predicted 
 
 ## Before sending
 
-- [ ] Candidate name is confirmed; the assessment mandates `Ahmad_Saffuan_GoHub_Architect_Challenge.zip`, which is used unless the candidate supplies a correction.
+- [ ] Candidate name is confirmed; the assessment mandates `Hema_Darshini_GoHub_Architect_Challenge.zip`, which is used unless the candidate supplies a correction.
 - [ ] Candidate replaces time-spent placeholders with actual human time.
 - [ ] Candidate independently reviews and can defend the architecture and incident decisions.
 - [ ] ZIP opens cleanly and contains only the documented submission files.

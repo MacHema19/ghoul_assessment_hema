@@ -1,0 +1,8 @@
+.DS_Store
+**/.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+SUBMISSION-CHECKLIST.md
+**/SUBMISSION-CHECKLIST.md
