@@ -1,0 +1,1 @@
+"""GoHub Seat Inventory Service."""

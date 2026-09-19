@@ -1,0 +1,29 @@
+flowchart LR
+  U[Customer apps] -->|browse, hold, checkout| B[Booking Service\nSaga orchestrator]
+  O[Operator systems] <-->|webhook <= 30 s| N[Notification Service]
+
+  subgraph Services[GoHub service boundary]
+    B -->|REST: hold/confirm/release| S[Seat Inventory Service]
+    B -->|async payment command| K[(Kafka)]
+    K --> P[Payment Service]
+    P -->|payment.authorized / failed| K
+    K --> B
+    K --> N
+    K --> A[Audit Service]
+    S -->|seat.held / confirmed / released / expired| K
+  end
+
+  B --- BDB[(Booking PostgreSQL\nSaga state + outbox)]
+  S --- SDB[(Seat PostgreSQL\nauthoritative seat state)]
+  S --- R[(Redis\n8-minute TTL mirror\n10-minute replay cache)]
+  P --- PDB[(Payment PostgreSQL\nattempts + provider refs)]
+  N --- NDB[(Notification PostgreSQL\ndelivery attempts)]
+  A --- ADB[(Append-only Audit Store)]
+
+  K -. retry topics / DLQ .-> B
+  K -. retry topics / DLQ .-> N
+
+  classDef service fill:#e8f1fb,stroke:#174a7e,color:#000;
+  classDef store fill:#f5f5f5,stroke:#555,color:#000;
+  class B,S,P,N,A service;
+  class BDB,SDB,R,PDB,NDB,ADB,K store;
