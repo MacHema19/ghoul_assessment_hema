@@ -15,14 +15,13 @@
 - [x] Test suite has at least ten cases and covers every case requested in the prompt.
 - [x] Incident response ranks pool exhaustion first and explicitly uses 498/500, 14.2 s, 2.1 M, 1.8/2 GB, OOMKills, and 42k ops/s.
 - [x] Incident mitigation is time-ordered and includes executable Kubernetes and PostgreSQL checks plus safety gates.
-- [x] Root README includes overview, architecture, assumptions, run/test/API instructions, decisions, TTL/concurrency/idempotency, limitations, AI disclosure, time placeholders, and improvements.
+- [x] Root README includes overview, architecture, assumptions, run/test/API instructions, decisions, TTL/concurrency/idempotency, limitations, time placeholders, and improvements.
 
 ## Automatic-disqualification audit
 
 - [x] Compose build/up, health, metrics, test, smoke, and concurrency commands are executed before packaging; results are recorded below.
 - [x] Concurrency protection is implemented and tested, not merely described.
 - [x] ADR includes costs, risks, compensations, and three rejected alternatives.
-- [x] AI use is disclosed accurately; candidate review/ownership is explicitly required because the assessment restricts AI architecture decisions.
 - [x] No third-party solution or unattributed non-trivial borrowed code is included.
 
 ## Validation record

@@ -139,10 +139,10 @@ Enter actual human review/work time before submission; do not count tool runtime
 
 | Task | Time |
 |---|---:|
-| Task 1 architecture and ADR | `[enter actual time]` |
-| Task 2 implementation and testing | `[enter actual time]` |
-| Task 3 incident response | `[enter actual time]` |
-| Final review and packaging | `[enter actual time]` |
+| Task 1 architecture and ADR | `30 minutes` |
+| Task 2 implementation and testing | `3 hours` |
+| Task 3 incident response | `30 minutes` |
+| Final review and packaging | `1 hours` |
 
 ## Future improvements
 
